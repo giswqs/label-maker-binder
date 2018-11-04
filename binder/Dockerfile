@@ -18,8 +18,6 @@ WORKDIR ${HOME}
 RUN apt-get install git \
  && cd /root \
  && git clone https://github.com/mapbox/tippecanoe.git tippecanoe \
- && cd tippecanoe \
- && git checkout tags/$TIPPECANOE_RELEASE \
  && cd /root/tippecanoe \
  && make \
  && make install \
