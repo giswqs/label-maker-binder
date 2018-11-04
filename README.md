@@ -1,9 +1,21 @@
-# Using conda with pip in the same build
+# Using label-maker in an interactive Jupyter notebook on the cloud
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/giswqs/label-maker-binder/master)
 
-If you use `environment.yml`, then Binder will use a Miniconda distribution
-to install your packages. However, you may still want to use `pip`. In
-this case, you should **not** use a `requirements.txt` file, but instead use
-a `- pip` section in `environment.yml`. This repository is an example of how
-to construct your `environment.yml` file to accomplish this.
+## Usage
+
+* Launch [Binder](https://mybinder.org/v2/gh/giswqs/label-maker-binder/master) 
+* On the Jupyter Notebook interface, click **New - Text File**
+* Change the file name from untitled.txt to **config.json**
+* Copy and paste the content from the [config.example.json](https://github.com/giswqs/label-maker/blob/master/config.example.json) and change the **ACCESS_TOKEN** to your mapbox token. 
+* Save **config.json** (Menu - File - Save)
+* Create a new Jupyter Notebook (New - Notebook - Python 3)
+* Enter the following commmands. See this [example](https://github.com/giswqs/label-maker-binder/blob/master/examples/label-maker-binder.ipynb)
+
+```python
+!label-maker download
+!label-maker labels
+!label-maker preview -n 10
+!label-maker images
+!label-maker package
+```
