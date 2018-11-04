@@ -1,23 +1,23 @@
-FROM python:3.6
-# install the notebook package
-RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache notebook
 
-# create user with a home directory
-ARG NB_USER
-ARG NB_UID
-ENV USER ${NB_USER}
-ENV HOME /home/${NB_USER}
+# Start from ubuntu
+FROM ubuntu:16.04
 
-RUN adduser --disabled-password \
-    --gecos "Default user" \
-    --uid ${NB_UID} \
-    ${NB_USER}
-WORKDIR ${HOME}
+# Update repos and install dependencies
+RUN apt-get update \
+  && apt-get -y upgrade \
+  && apt-get -y install build-essential libsqlite3-dev zlib1g-dev
 
-RUN apt-get install git
-RUN mkdir /tmp/tippecanoe
-RUN git clone https://github.com/mapbox/tippecanoe.git /tmp/tippecanoe
-RUN cd /tmp/tippecanoe
-RUN make -j
-RUN make install
+# Create a directory and copy in all files
+RUN mkdir -p /tmp/tippecanoe-src
+WORKDIR /tmp/tippecanoe-src
+COPY . /tmp/tippecanoe-src
+
+# Build tippecanoe
+RUN make \
+  && make install
+
+# Run the tests
+CMD make test
+
+RUN apt install python3.6
+RUN pip install label-maker
