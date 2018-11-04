@@ -24,4 +24,4 @@ RUN apt-get install git \
  && cd /root \
  && pip install label-maker
 
-RUN pip install tensorflow keras
+# RUN pip install tensorflow keras
