@@ -16,8 +16,8 @@ RUN adduser --disabled-password \
 WORKDIR ${HOME}
 
 RUN apt-get install git
-RUN git clone https://github.com/mapbox/tippecanoe.git
-RUN cd tippecanoe
-RUN ./configure
+RUN mkdir /tmp
+RUN git clone https://github.com/mapbox/tippecanoe.git /tmp
+RUN cd /tmp
 RUN make -j
 RUN make install
