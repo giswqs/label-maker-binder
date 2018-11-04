@@ -22,3 +22,4 @@ RUN apt-get install git \
  && make \
  && make install \
  && cd /root \
+ && pip install label-maker
