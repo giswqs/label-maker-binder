@@ -24,6 +24,6 @@ RUN apt-get install git \
  && cd /root \
  && pip install label-maker
 
- RUN git clone https://github.com/giswqs/label-maker-binder.git /home/${NB_USER}/examples
- RUN chown -R ${NB_USER} /home/${NB_USER}/examples
+ RUN git clone https://github.com/giswqs/label-maker-binder.git /home/${NB_USER}
+ RUN chown -R ${NB_USER} /home/${NB_USER}
 # RUN pip install tensorflow keras
