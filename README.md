@@ -5,17 +5,8 @@
 ## Usage
 
 * Launch [Binder](https://mybinder.org/v2/gh/giswqs/label-maker-binder/master) 
-* On the Jupyter Notebook interface, click **New - Text File**
-* Change the file name from untitled.txt to **config.json**
-* Copy and paste the content from the [config.example.json](https://github.com/giswqs/label-maker/blob/master/config.example.json) and change the **ACCESS_TOKEN** to your mapbox token. 
-* Save **config.json** (Menu - File - Save)
-* Create a new Jupyter Notebook (New - Notebook - Python 3)
-* Enter the following commands. See this [example](https://github.com/giswqs/label-maker-binder/blob/master/examples/label-maker-binder.ipynb)
+* A Jupyter Notebook will open in your browser
+* Open **config.json** and replace **ACCESS_TOKEN** with your [mapbox access token](https://www.mapbox.com/account/access-tokens). You can also change the content of **config.json** (e.g., *country, bounding_box*) if needed.
+* Save changes to **config.json** (Menu - File - Save)
+* Open **label-maker-binder.ipynb** and start running cells 
 
-```python
-!label-maker download
-!label-maker labels
-!label-maker preview -n 10
-!label-maker images
-!label-maker package
-```
