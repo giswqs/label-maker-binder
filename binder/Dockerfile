@@ -22,7 +22,7 @@ RUN apt-get install git \
  && make \
  && make install \
  && cd /root \
- && pip install label-maker
+ && pip install label-maker pygis
 
 RUN git clone https://github.com/giswqs/label-maker-binder.git /home/${NB_USER}/label-maker-binder \
  && mv /home/${NB_USER}/label-maker-binder/* /home/${NB_USER} \
